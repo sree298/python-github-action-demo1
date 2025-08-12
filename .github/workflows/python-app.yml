@@ -1,0 +1,23 @@
+name: Run Python Script
+
+on:
+  push:
+    branches:
+      - main  # use 'master' if your repo uses that
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Run script
+      run: python hello.py
